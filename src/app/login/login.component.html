@@ -1,0 +1,27 @@
+<section>
+    <div class="container p-3 ">
+        <div class="row p-3  mt-5 d-flex " style="border-radius: 30px;">
+            
+            <div class="col-md-5  col-12" style="border-radius: 30px;">
+                
+                <img src="assets/login-images/login.gif" class="img-fluid mb-3" alt="">
+            </div>
+            <div class="col-md-7 mt-5 col-12 ">
+                <h1 class="text-center ">Register/Login</h1>
+                
+                <form class="mt-5"  [formGroup]="registerForm" (ngSubmit)="login()">
+                    <div class="mb-4 col-md-6 col-12 ms-auto me-auto">
+                        <input type="number" required id="mobile" class="form-control p-3 shadow col-12" style="border-radius: 30px;"
+                         placeholder="Mobile number" formControlName="mobile">
+                         <p *ngIf="(this.registerForm.get('mobile')?.touched || this.registerForm.get('mobile')?.dirty) && this.registerForm.get('mobile')?.errors" class="text-danger  mt-2 text-center">!Invalid mobile number</p>
+                    </div>
+                   
+                    <div class="mb-3 col-md-6 col-12 ms-auto me-auto">
+                        <button type="submit" class="btn btn-grad shadow p-3 col-md-11 col-11 text-white" style="border-radius: 30px; ">Send</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</section>

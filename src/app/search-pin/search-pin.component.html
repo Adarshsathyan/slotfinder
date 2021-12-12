@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<section id="s_pin" >
+    <div class=" container p-5  mb-3">
+      <div class="row d-flex align-items-center" style="margin-top: 100px;">
+        <div class="col-md-6 col-12 ">
+          <h1 style="font-size: 50px;">Search by pin</h1>
+          <p class="mt-2 text-muted">Search whether your area have any vaccination center available.</p>
+          <div>
+            <form   class="row mt-5 " [formGroup]="findyByPinForm" (ngSubmit)="searchPin()">
+              <div class="col-md-4 mb-3 col-12">
+                <input type="number" style="border-radius: 30px;" class="form-control shadow p-3" placeholder="e.g.691001" name=""
+              id="pincode" formControlName="pincode" >
+              
+              </div>
+              <div class="col-md-5 mb-3 col-12">
+                <input type="date" placeholder="date" style="border-radius: 30px;" class="form-control text-muted shadow p-3"  name=""
+              id="v_date" formControlName="date" >
+              
+              </div>
+            <div class="col-md-3 col-12">
+            <button class="btn col-12 text-white shadow p-3" type="submit"
+              style="background-image: linear-gradient(to top right, #1b5188  51%, #b2cfec  100%);border-radius: 25px;"><i
+                class="fas fa-search"  ></i> Search</button>
+            </div>
+            </form>
+            
+        </div>
+      </div>
+      <div class="col-md-6 col-12 p-5" id="s_image">
+      <img src="assets/home-images/search.gif" class="img-fluid" alt="">
+    </div>
+    
+  </div>
+  <div id="main_pin_sessions"  >
+    <h2 class="text-center mb-5" *ngIf = this.sessions[0] >Available Sessions</h2>
+    <div class="row d-flex align-items-center" id="pin_sessions"  *ngIf = this.sessions[0]>
+        <div  class="col-md-4 p-5  mb-3  " *ngFor = "let session of sessions">
+            <div class="mb-5">
+              <p class="fw-bold fs-5 text-center">{{session.name}}</p>
+              <p class="text-muted text-center">{{session.block_name}}</p>   
+              <p class="fw-bold text-center ">{{session.vaccine}}</p>
+                  <p class="fw-bold text-center">{{session.date}}</p>
+                  <p class="text-success fw-bold text-center">{{session.fee_type}}</p>
+                  <p class="fw-bold text-center">₹{{session.fee}}/-</p>     
+            </div>
+              
+              <div class="col-md-11">
+                <button class="btn btn-grad text-white col-md-12 col-12" style="border-radius: 30px;">Book</button>
+              </div>
+          </div>
+    </div>
+    <h2 class="text-center mb-5" *ngIf = !this.sessions >No session available</h2>
+
+  </div>
+  
+</div>
+</section> 
